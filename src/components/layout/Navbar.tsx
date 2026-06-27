@@ -30,7 +30,13 @@ export function Navbar() {
 
   const go = (id: string) => {
     setOpen(false);
-    scrollToSection(id);
+    // Unlock scroll first — the mobile menu had stopped Lenis / locked the
+    // body, which would make the scroll-to silently no-op. Restore it, then
+    // scroll on the next frames so layout has settled.
+    setScrollLock(false);
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => scrollToSection(id))
+    );
   };
 
   return (
