@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { profile } from "@/data/profile";
 
@@ -11,18 +11,26 @@ export function Loader({ onComplete }: { onComplete: () => void }) {
   const [progress, setProgress] = useState(0);
   const [done, setDone] = useState(false);
 
+  // Keep the latest onComplete without making it an effect dependency —
+  // otherwise the loader restarts every time the parent re-renders.
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
+
   useEffect(() => {
+    const finish = () => onCompleteRef.current();
+
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
     if (prefersReduced) {
       setProgress(100);
       setDone(true);
-      const t = setTimeout(onComplete, 200);
+      const t = setTimeout(finish, 200);
       return () => clearTimeout(t);
     }
 
     let raf = 0;
+    let endTimer = 0;
     const start = performance.now();
     const DURATION = 1500;
     const tick = (now: number) => {
@@ -33,12 +41,17 @@ export function Loader({ onComplete }: { onComplete: () => void }) {
         raf = requestAnimationFrame(tick);
       } else {
         setDone(true);
-        setTimeout(onComplete, 700);
+        endTimer = window.setTimeout(finish, 700);
       }
     };
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [onComplete]);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(endTimer);
+    };
+    // Run exactly once on mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <AnimatePresence>
