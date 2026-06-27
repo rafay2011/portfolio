@@ -15,7 +15,7 @@ export const profile = {
   availability: "Available for select projects",
   email: "abdulrafayansari123@gmail.com",
   phone: "+92 316 6273134",
-  resumeUrl: "/resume/Muhammad-Rafay-CV.pdf",
+  resumeUrl: "/resume/cv.pdf",
   /**
    * Professional portrait. Drop a photo at public/profile.jpg
    * (professional dress, clean/dark background to match the theme).

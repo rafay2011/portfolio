@@ -117,7 +117,12 @@ export function Hero() {
                   Hire Me
                 </Button>
               </MagneticButton>
-              <a href={profile.resumeUrl} download>
+              <a
+                href={profile.resumeUrl}
+                download="Muhammad-Rafay-CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button size="lg" variant="ghost" data-cursor>
                   <Download size={16} />
                   Resume
