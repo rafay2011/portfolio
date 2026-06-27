@@ -45,28 +45,28 @@ export function Contact() {
                 className="group flex items-center gap-4 rounded-xl border border-border bg-surface/40 p-4 transition-colors hover:border-accent/30"
                 data-cursor
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-background">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background">
                   <Mail size={18} className="text-accent" />
                 </span>
-                <span className="flex-1">
+                <span className="min-w-0 flex-1">
                   <span className="block text-xs text-muted">Email</span>
-                  <span className="block text-sm text-primary">
+                  <span className="block break-all text-sm text-primary">
                     {profile.email}
                   </span>
                 </span>
                 <ArrowUpRight
                   size={16}
-                  className="text-muted transition-colors group-hover:text-accent"
+                  className="shrink-0 text-muted transition-colors group-hover:text-accent"
                 />
               </a>
             </Reveal>
 
             <Reveal delay={0.08}>
               <div className="flex items-center gap-4 rounded-xl border border-border bg-surface/40 p-4">
-                <span className="flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-background">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-border bg-background">
                   <MapPin size={18} className="text-accent" />
                 </span>
-                <span className="flex-1">
+                <span className="min-w-0 flex-1">
                   <span className="block text-xs text-muted">Location</span>
                   <span className="block text-sm text-primary">
                     {profile.location}

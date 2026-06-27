@@ -36,7 +36,7 @@ export function Footer() {
             </p>
             <a
               href={`mailto:${profile.email}`}
-              className="mt-5 inline-block text-sm text-accent transition-colors hover:text-accent-soft"
+              className="mt-5 inline-block break-all text-sm text-accent transition-colors hover:text-accent-soft"
             >
               {profile.email}
             </a>
