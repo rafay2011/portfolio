@@ -19,6 +19,7 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     scroll-behavior: auto; /* Lenis handles smooth scrolling */
+    overflow-x: hidden;
   }
 
   body {
@@ -26,6 +27,8 @@
     color: #ffffff;
     font-family: "Geist", "Inter", system-ui, sans-serif;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
     font-feature-settings: "ss01", "cv01";
   }
 

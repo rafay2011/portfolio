@@ -31,7 +31,7 @@ export function Contact() {
     <Section id="contact">
       <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
         {/* Left — pitch + details */}
-        <div className="lg:col-span-5">
+        <div className="min-w-0 lg:col-span-5">
           <SectionHeading
             eyebrow="Contact"
             title="Let's build something that lasts."
@@ -77,7 +77,7 @@ export function Contact() {
           </div>
 
           {socials.length > 0 && (
-            <Reveal delay={0.16}>
+            <Reveal delay={0.16} className="max-[380px]:hidden">
               <div className="mt-6 flex flex-wrap gap-3">
                 {socials.map((s) => {
                   const Icon = s.icon;
@@ -101,7 +101,7 @@ export function Contact() {
         </div>
 
         {/* Right — direct CTA panel */}
-        <div className="lg:col-span-7">
+        <div className="min-w-0 lg:col-span-7">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -130,10 +130,10 @@ export function Contact() {
                 you personally.
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <MagneticButton>
-                  <a href={mailto}>
-                    <Button size="lg" data-cursor>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <MagneticButton className="block w-full sm:inline-block sm:w-auto">
+                  <a href={mailto} className="block w-full sm:w-auto">
+                    <Button size="lg" className="w-full sm:w-auto" data-cursor>
                       <Mail size={17} /> Email Me
                     </Button>
                   </a>
@@ -142,9 +142,16 @@ export function Contact() {
                   href={profile.socials.linkedin}
                   target="_blank"
                   rel="noreferrer"
+                  className="block w-full sm:w-auto"
                 >
-                  <Button size="lg" variant="outline" data-cursor>
-                    <Linkedin size={17} /> Connect on LinkedIn
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full sm:w-auto"
+                    data-cursor
+                  >
+                    <Linkedin size={17} className="max-[380px]:hidden" /> Connect on
+                    LinkedIn
                   </Button>
                 </a>
               </div>
