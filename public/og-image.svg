@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E3C766"/>
+      <stop offset="0.5" stop-color="#C9A227"/>
+      <stop offset="1" stop-color="#9A7B16"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="30%" r="70%">
+      <stop offset="0" stop-color="rgba(201,162,39,0.18)"/>
+      <stop offset="1" stop-color="rgba(201,162,39,0)"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="rgba(255,255,255,0.05)"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#050505"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <text x="80" y="250" fill="#A1A1AA" font-family="Inter, sans-serif" font-size="26" letter-spacing="6">FULL-STACK SOFTWARE ENGINEER</text>
+  <text x="76" y="350" fill="#FFFFFF" font-family="Inter, sans-serif" font-weight="700" font-size="92">Muhammad Rafay</text>
+  <text x="80" y="430" fill="url(#gold)" font-family="Inter, sans-serif" font-weight="600" font-size="40">I build the software businesses run on.</text>
+  <text x="80" y="510" fill="#71717A" font-family="Inter, sans-serif" font-size="26">Laravel · PHP · Node.js · React · Vue.js · REST APIs</text>
+  <rect x="80" y="540" width="220" height="6" rx="3" fill="url(#gold)"/>
+</svg>
